@@ -43,6 +43,8 @@ The repository should also contain the .py files necessary to reproduce your wor
 ## How to Reproduce
 ---
 
+### First clone this repo
+
 ### Acquire 
 * Must include `env.py` file in directory.
     * Contact [Codeup](https://codeup.com/contact/) to request access to the MySQL Server that the data is stored on.
@@ -51,5 +53,8 @@ The repository should also contain the .py files necessary to reproduce your wor
         * `password`
         * `host`
 
-* See the acquire walkthrough for details of creating a csv with the FIPS data and the zillow data.
+* See the acquire walkthrough for the code to run to create a csv with the FIPS data and the zillow data.
     * This is necessary to run `get_data()`, as it will look for the files to join together.
+
+### Preparation
+* `get_and_clean_data()` will run the acquire function so you only need to run this one to get the data at further stages of the pipeline.
