@@ -19,7 +19,7 @@ def label_county(row):
 def get_data():
     if not path.isfile("zillow.csv"):
         query = '''
-        SELECT p.id, p.bathroomcnt, p.bedroomcnt, p.calculatedfinishedsquarefeet, p.fips, p.fullbathcnt, p.latitude, p.longitude, p.roomcnt, p.yearbuilt, p.taxvaluedollarcnt, ROUND((p.taxamount / p.taxvaluedollarcnt) * 100, 2) AS taxrate
+        SELECT p.id, p.bathroomcnt, p.bedroomcnt, p.calculatedbathnbr, p.calculatedfinishedsquarefeet, p.fips, p.fullbathcnt, p.latitude, p.longitude, p.roomcnt, p.yearbuilt, p.taxvaluedollarcnt, ROUND((p.taxamount / p.taxvaluedollarcnt) * 100, 2) AS taxrate
         FROM properties_2017 AS p
         JOIN predictions_2017 AS pr USING (parcelid)
         WHERE p.propertylandusetypeid IN (261, 262, 263, 264, 266, 268, 273, 276, 279)
