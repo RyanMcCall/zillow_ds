@@ -7,7 +7,7 @@ def acquire_and_prep_data():
 
     zillow = zillow.drop_duplicates()
     zillow = zillow.dropna()
-    zillow = zillow.drop(columns='fips')
+    zillow = zillow.drop(columns=['fips', 'roomcnt'])
 
     zillow.bedroomcnt = zillow.bedroomcnt.astype('int')
     zillow.calculatedfinishedsquarefeet = zillow.calculatedfinishedsquarefeet.astype('int')
