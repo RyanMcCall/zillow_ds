@@ -53,8 +53,7 @@ The repository should also contain the .py files necessary to reproduce your wor
         * `password`
         * `host`
 
-* See the acquire walkthrough for the code to run to create a csv with the FIPS data and the zillow data.
-    * This is necessary to run `get_data()`, as it will look for the files to join together.
+* As long as you have the env file then `get_data()` will do the rest on it's own.
 
 ### Preparation
-* `get_and_clean_data()` will run the acquire function so you only need to run this one to get the data at further stages of the pipeline.
+* `acquire_and_clean_data()` will run the acquire function so you only need to run this one to get the data at further stages of the pipeline.
