@@ -20,4 +20,7 @@ def acquire_and_prep_data():
     zillow.latitude = zillow.latitude / 1000000
     zillow.longitude = zillow.longitude / 1000000
 
+    zillow = zillow[zillow.bedroomcnt > 0]
+    zillow = zillow[zillow.bedroomcnt > 0]
+
     return zillow
