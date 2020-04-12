@@ -1,7 +1,6 @@
 # What Drives Home Value
 
 ## Description
----
 
 You are a junior data scientist on the Zillow data science team and recieve the following email in your inbox:
 
@@ -40,20 +39,36 @@ Make sure your notebooks answer all the questions posed in the email from the Zi
 
 The repository should also contain the .py files necessary to reproduce your work, and your work must be reproducible by someone with their own env.py file.
 
+## Data Dictionary
+
+| Column | Description |
+| --- | ---|
+| id | Unique id for each house |
+| bathroomcnt | Number of Bathrooms; Includes halfbaths |
+| bedroomcnt | Number of Bedrooms |
+| calculatedbathnbr | Unknown; but appears to be just a repeat of bathroomcnt |
+| calculatedfinishedsquarefeet | Renamed to squarefeet; Total square feet of home; doesn't include property square feet |
+
+
 ## How to Reproduce
----
 
 ### First clone this repo
 
-### Acquire 
+### acquire.py 
 * Must include `env.py` file in directory.
     * Contact [Codeup](https://codeup.com/contact/) to request access to the MySQL Server that the data is stored on.
     * `env.py` should include the following variables
-        * `user`
-        * `password`
-        * `host`
+        * `user` - should be your username
+        * `password` - your password
+        * `host` - the host address for the MySQL Server
 
 * As long as you have the env file then `get_data()` will do the rest on it's own.
 
-### Preparation
-* `acquire_and_clean_data()` will run the acquire function so you only need to run this one to get the data at further stages of the pipeline.
+### prep.py
+* `acquire_and_clean_data()` will run the acquire function so you only need to run this one to get the data and have it cleaned at further stages of the pipeline.
+
+### model.py
+* This file has three functions
+    * `get_model()` returns a linear regression model that has bee fit on the training data
+    * `make_predictions()` takes in the linear model object, a series containing the target values, and a dataframe containing the features and  returns a dataframe with the actual values, baseline predictions, and model predictions
+    * `evaluate_model()` takes in the predictions dataframe from `make_predictions()` and returns the RMSE for each along with whether the model performed better.
