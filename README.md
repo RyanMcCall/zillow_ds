@@ -1,5 +1,7 @@
 # What Drives Home Value
 
+See final presentation here: [**What drives home prices?**](https://docs.google.com/presentation/d/1UexwpwyaKn-lRjBrLSUl0rYuAGK93vl-u1IknYK3Dcs/edit?usp=sharing)
+
 ## Description
 
 You are a junior data scientist on the Zillow data science team and recieve the following email in your inbox:
@@ -53,9 +55,12 @@ The repository should also contain the .py files necessary to reproduce your wor
 | longitude | The longitude of the property |
 | yearbuilt | The year the house was built |
 | taxvaluedollarcnt | The tax accessed value of the property in USD. |
-| beds_per_bath | Calculated column of bedrooms / bathroom; Includes half baths as 0.5 |
-| baths_per_bed | Calculated column of bathrooms / bedrooms |
-| sqft_per_bed_and_bath | Calculated column of sqft / (bedroom + bathrooms) |
+| taxrate | Calculated column of (`taxamount`(*from SQL database*)/ `taxvaluedollarcnt`) * 100 |
+| beds_per_bath | Calculated column of `bedroomcnt` / `bathroomcnt`; Includes half baths as 0.5 |
+| baths_per_bed | Calculated column of `bathroomcnt` / `bedroomcnt` |
+| sqft_per_bed_and_bath | Calculated column of `squarefeet` / (`bedroomcnt` + `bathroomcnt`) |
+
+*All above columns were chosen based on the specifications from the team and their lack of null values. While multiple coloumns held information about the beds, baths, and sqft; these columns had less then 10% null values for the team specifications*
 
 ## How to Reproduce
 
@@ -76,6 +81,6 @@ The repository should also contain the .py files necessary to reproduce your wor
 
 ### model.py
 * This file has three functions
-    * `get_model()` returns a linear regression model that has bee fit on the training data
+    * `get_model()` returns a linear regression model that has been fit on the training data
     * `make_predictions()` takes in the linear model object, a series containing the target values, and a dataframe containing the features and  returns a dataframe with the actual values, baseline predictions, and model predictions
     * `evaluate_model()` takes in the predictions dataframe from `make_predictions()` and returns the RMSE for each along with whether the model performed better.
