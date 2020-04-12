@@ -44,11 +44,18 @@ The repository should also contain the .py files necessary to reproduce your wor
 | Column | Description |
 | --- | ---|
 | id | Unique id for each house |
-| bathroomcnt | Number of Bathrooms; Includes halfbaths |
+| bathroomcnt | Number of Bathrooms; Includes halfbaths as 0.5 |
 | bedroomcnt | Number of Bedrooms |
 | calculatedbathnbr | Unknown; but appears to be just a repeat of bathroomcnt |
 | calculatedfinishedsquarefeet | Renamed to squarefeet; Total square feet of home; doesn't include property square feet |
-
+| fullbathcnt | Number of full bathrooms |
+| latitude | The latitude of the property
+| longitude | The longitude of the property |
+| yearbuilt | The year the house was built |
+| taxvaluedollarcnt | The tax accessed value of the property in USD. |
+| beds_per_bath | Calculated column of bedrooms / bathroom; Includes half baths as 0.5 |
+| baths_per_bed | Calculated column of bathrooms / bedrooms |
+| sqft_per_bed_and_bath | Calculated column of sqft / (bedroom + bathrooms) |
 
 ## How to Reproduce
 
